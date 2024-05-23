@@ -6,8 +6,8 @@ services:
       context: ./worklenz-frontend
       dockerfile: Dockerfile
     container_name: worklenz_frontend
-    ports:
-      - "4200:4200"
+    expose:
+      - 4200
     volumes:
       - ./worklenz-frontend:/app
     networks:
@@ -18,8 +18,8 @@ services:
       context: ./worklenz-backend
       dockerfile: Dockerfile
     container_name: worklenz_backend
-    ports:
-      - "3000:3000"
+    expose:
+      - 3000
     depends_on:
       - db
     environment:
